@@ -9,6 +9,7 @@ import rootReducer from './reducers/index';
 
 import superagent from 'superagent';
 import feathers from 'feathers-client';
+import io from 'socket.io-client';
 import rest from 'feathers-rest/client';
 
 const defaultState = {};

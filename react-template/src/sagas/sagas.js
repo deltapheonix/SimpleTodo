@@ -1,6 +1,6 @@
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
 import { browserHistory } from 'react-router';
-import { createItem, updateItem, removeItem, findAllItems } from '../service/api';
+import { createItem, updateItem, removeItem, findAllItems } from '../services/api';
 
 
 // call feathers api -> result -> dispatch an action -> reduce action -> updates the state -> ui changes
@@ -39,26 +39,11 @@ function* findAllSaga(service) {
 }
 
 
-/*
-function something() {
-  // call api
-}
-
-function* callSomething(action) {
-  const result = yield call(something, action.param);
-  yield put({ type: '', result });
-}
-
-function* somethingSaga() {
-  yield takeEvery('MY_ACTION', callSomething);
-}
-*/
-
-export default function* root() {
+export default function* root(service) {
   yield [
     fork(findAllSaga, service),
     fork(createItemSaga, service),
-    fork(updatedItemSaga, service),
+    fork(updateItemSaga, service),
     fork(removeItemSaga, service),
   ];
 }
