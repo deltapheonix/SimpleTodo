@@ -43,3 +43,9 @@ export function removeItem(id) {
     }
 
 }
+
+export function findAllItems() {
+    return {
+        type: 'FIND_ALL_ITEMS'
+    }
+}
