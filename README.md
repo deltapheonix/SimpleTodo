@@ -1,5 +1,5 @@
 SimpleTodo
-Created while taking the Ben Awad Real Time To-Do list using web sockets.
+Created while taking the Ben Awad Real Time To-Do list class using web sockets.
 
 Stack:
 React.js
