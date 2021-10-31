@@ -1,7 +1,7 @@
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
 import { browserHistory } from 'react-router';
-import { findAllItems, removeItem } from '../actions/actionCreators';
-import { type } from 'os';
+import { createItem, updateItem, removeItem, findAllItems } from '../service/api';
+
 
 // call feathers api -> result -> dispatch an action -> reduce action -> updates the state -> ui changes
 
