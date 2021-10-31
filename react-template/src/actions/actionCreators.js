@@ -18,3 +18,28 @@ export function removedItem(item) {
         item
     }
 }
+
+export function createItem(item) {
+    return {
+        type: 'CREATE_ITEM',
+        item
+    }
+
+}
+
+export function updateItem(id, newData) {
+    return {
+        type: 'UPDATE_ITEM',
+        id,
+        newData
+    }
+
+}
+
+export function removeItem(id) {
+    return {
+        type: 'REMOVE_ITEM',
+        id
+    }
+
+}
