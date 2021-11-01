@@ -20,7 +20,7 @@ export default class Main extends Component {
     return (
       <Container text>
         <Header as="h1" textAlign="center">
-          <Link to="/">Title</Link>
+          Simple To-Do
         </Header>
         {React.cloneElement(this.props.children, this.props)}
       </Container>
