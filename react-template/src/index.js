@@ -9,6 +9,7 @@ import Home from './components/Home';
 
 import store, { history } from './store';
 
+import './styles.css';
 
 const router = (
   <Provider store={store}>

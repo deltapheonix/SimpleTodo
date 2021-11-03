@@ -32,6 +32,7 @@ function* removeItemSaga(service) {
 
 function* callFindAllItems(service, action) {
   const result = yield call(findAllItems, service);
+  yield put({type: 'FIND_ALL_ITEMS_DONE', result})
 }
 
 function* findAllSaga(service) {
