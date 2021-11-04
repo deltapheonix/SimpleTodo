@@ -24,7 +24,7 @@ const host = 'http://localhost:3030';
 //Configures REST calls to to feather server.
 const restApp = feathers()
 .configure(rest(host).superagent(superagent))
-.configure(feathers.hooks())
+.configure(feathers.hooks());
 
 const itemService = restApp.service('items');
 

@@ -1,4 +1,4 @@
-// Initializes the `item` service on path `/item`
+// Initializes the `item` service on path `/items`
 const { Item } = require('./item.class');
 const createModel = require('../../models/item.model');
 const hooks = require('./item.hooks');
@@ -10,10 +10,10 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/item', new Item(options, app));
+  app.use('/items', new Item(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('item');
+  const service = app.service('items');
 
   service.hooks(hooks);
 };

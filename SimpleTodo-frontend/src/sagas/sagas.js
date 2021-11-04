@@ -1,5 +1,4 @@
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
-import { browserHistory } from 'react-router';
 import { createItem, updateItem, removeItem, findAllItems } from '../services/api';
 
 
@@ -7,6 +6,8 @@ import { createItem, updateItem, removeItem, findAllItems } from '../services/ap
 
 function* callCreateItem(service, action) {
   const result = yield call(createItem, service, action.item);
+  console.log(result);
+  yield put({type: "CREATE_ITEM_DONE", result})
 }
 
 function* createItemSaga(service) {
@@ -15,6 +16,7 @@ function* createItemSaga(service) {
 
 function* callUpdateItem(service, action) {
   const result = yield call(updateItem, service, action.id, action.newData);
+  yield put({type: "UPDATE_ITEM_DONE", result});
 }
 
 function* updateItemSaga(service) {
@@ -23,6 +25,7 @@ function* updateItemSaga(service) {
 
 function* callRemoveItem(service, action) {
   const result = yield call(removeItem, service, action.id);
+  yield put({type: "REMOVE_ITEM_DONE", result});
 }
 
 function* removeItemSaga(service) {
@@ -30,13 +33,13 @@ function* removeItemSaga(service) {
 }
 
 
-function* callFindAllItems(service, action) {
+function* callFindAllSaga(service, action) {
   const result = yield call(findAllItems, service);
   yield put({type: 'FIND_ALL_ITEMS_DONE', result})
 }
 
 function* findAllSaga(service) {
-  yield takeEvery('FIND_ALL_ITEMS', callFindAllItems, service);
+  yield takeEvery('FIND_ALL_ITEMS', callFindAllSaga, service);
 }
 
 

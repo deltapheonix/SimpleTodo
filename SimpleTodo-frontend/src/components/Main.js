@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router';
 import { Header, Container } from 'semantic-ui-react';
 
 import { socketApp } from '../store';

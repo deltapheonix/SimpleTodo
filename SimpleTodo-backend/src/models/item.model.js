@@ -5,7 +5,7 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const item = sequelizeClient.define('items', {
+  const item = sequelizeClient.define('item', {
     text: {
       type: DataTypes.STRING,
       allowNull: false
@@ -15,18 +15,21 @@ module.exports = function (app) {
       allowNull: false
     },
   }, {
-    hooks: {
-      beforeCount(options) {
-        options.raw = true;
-      }
-    }
+    //hooks: {
+    //  beforeCount(options) {
+    //    options.raw = true;
+    //  }
+    //}
+    freezeTableName: true
   });
 
   // eslint-disable-next-line no-unused-vars
-  item.associate = function (models) {
-    // Define associations here
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
-  };
+  // item.associate = function (models) {
+  //   // Define associations here
+  //   // See http://docs.sequelizejs.com/en/latest/docs/associations/
+  // };
+
+  item.sync();
 
   return item;
 };
