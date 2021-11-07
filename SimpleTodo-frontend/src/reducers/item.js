@@ -10,7 +10,7 @@ function handleItems(state = {all: []}, action) {
                 all: [action.item, ...state.all]
             }
         
-        case 'UPDATE_ITEM':
+        case 'UPDATED_ITEM':
             let newAll = [];
             for (const item of state.all) {
                 if (item.id === action.item.id) {

@@ -7,7 +7,7 @@ export function removeItem(service, id) {
 }
 
 export function updateItem(service, id, newData) {
-    return service.upadte(id, newData).then((data) => data);
+    return service.update(id, newData).then((data) => data);
 }
 
 export function findAllItems(service) {
